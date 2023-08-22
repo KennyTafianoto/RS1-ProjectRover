@@ -20,3 +20,6 @@ Turtlebot3 + D435i:
 - https://github.com/rickstaa/realsense-ros-gazebo
 - https://github.com/pal-robotics-forks/realsense
 - https://github.com/pal-robotics-forks/realsense/tree/kinetic-devel/realsense2_description/urdf
+
+SLAM with D435i:
+- https://github.com/IntelRealSense/realsense-ros/wiki/SLAM-with-D435i
