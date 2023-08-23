@@ -43,13 +43,23 @@ SLAM with D435i:
     <arg name="image_topic" default="/rgb/image_raw" />
     <arg name="queue_size" default="1" />
 
-### Set tag family:
+### Set tag family (we will be using 36h11 family):
 #### edit:
     src/apriltag_ros/apriltag_ros/config/settings.yaml
 
 ### Add standalone tags (optional):
 #### edit:
     src/apriltag_ros/apriltag_ros/config/tags.yaml
+    standalone_tags:
+#### add:
+    [
+        {id: 0, size: 1.0, description: "TAG 0"},
+        {id: 1, size: 1.0, description: "TAG 1"},
+        {id: 2, size: 1.0, description: "TAG 2"},
+        {id: 3, size: 1.0, description: "TAG 3"},
+        {id: 4, size: 1.0, description: "TAG 4"},
+        {id: 5, size: 1.0, description: "TAG 5"}
+    ]
 
     
 ### Calibrate Camera:
