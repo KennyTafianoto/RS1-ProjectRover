@@ -67,7 +67,7 @@ Rover Project for Robotics Studio 1
     ]
 
     
-### Calibrate Camera:
+### Calibrate Camera (DONT WORRY ABOUT FOR NOW):
 #### Install calibration library:
     rosdep install camera_calibration
 
