@@ -29,13 +29,20 @@ SLAM with D435i:
 
 ## April tags
     edit src/apriltag_ros/apriltag_ros/launch/continuous_detection.launch
-    change "configure camera input" values to match camera node
+    change "configure camera input" values to match camera node names
     
     eg:
         <!-- configure camera input -->
           <arg name="camera_name" default="/usb_cam" />
           <arg name="image_topic" default="image_raw" />
           <arg name="queue_size" default="1" />
+
+    Set tag family:
+        edit src/apriltag_ros/apriltag_ros/config/settings.yaml
+
+    Add standalone tags (optional):
+        edit src/apriltag_ros/apriltag_ros/config/tags.yaml
+    
 
     Launch:
         roslaunch usb_cam usb_cam-test.launch
