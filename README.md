@@ -30,47 +30,46 @@ SLAM with D435i:
 ## April tags
 ### edit:
     src/apriltag_ros/apriltag_ros/launch/continuous_detection.launch
-### change:
-    "configure camera input" values to match camera node names
-    
+### change (values to match camera node names):
     eg (usb_cam):
         <!-- configure camera input -->
           <arg name="camera_name" default="/usb_cam" />
           <arg name="image_topic" default="image_raw" />
           <arg name="queue_size" default="1" />
+    
     eg 2 (turtlebot3):
-
          <!-- configure camera input -->
       <arg name="camera_name" default="/camera" />
       <arg name="image_topic" default="/rgb/image_raw" />
       <arg name="queue_size" default="1" />
 
-    Set tag family:
-        edit:
-            src/apriltag_ros/apriltag_ros/config/settings.yaml
+### Set tag family:
+#### edit:
+        src/apriltag_ros/apriltag_ros/config/settings.yaml
 
-    Add standalone tags (optional):
-        edit:
-            src/apriltag_ros/apriltag_ros/config/tags.yaml
+### Add standalone tags (optional):
+#### edit:
+        src/apriltag_ros/apriltag_ros/config/tags.yaml
 
     
-    Calibrate Camera:
-        Install calibration library:
-            rosdep install camera_calibration
+### Calibrate Camera:
+#### Install calibration library:
+        rosdep install camera_calibration
 
-        Calibrate:
-            roslaunch usb_cam usb_cam-test.launch
-            rosrun camera_calibration cameracalibrator.py --size 8x6 --square 0.024 image:=/camera/image_raw camera:=/camera
-            save file somewhere
-    
-        Edit:
-            usb_cam-test.launch file
-        Add line:
-            <param name="camera_info_url" value="file:///home/main/catkin_ws/src/usb_cam/cam_calibration/ost.yaml" />
-    
-
-    Launch:
+#### Calibrate:
         roslaunch usb_cam usb_cam-test.launch
-        roslaunch apriltag_ros continuous_detection.launch
-        rqt_image_view
+        rosrun camera_calibration cameracalibrator.py --size 8x6 --square 0.024 image:=/camera/image_raw camera:=/camera
+        save file somewhere
+    
+##$# Edit:
+    usb_cam-test.launch file
+
+#### Add line:
+        <param name="camera_info_url" value="file:///home/main/catkin_ws/src/usb_cam/cam_calibration/ost.yaml" />
+    
+
+### Launch:
+    roslaunch usb_cam usb_cam-test.launch
+    roslaunch apriltag_ros continuous_detection.launch
+    rqt_image_view
         
