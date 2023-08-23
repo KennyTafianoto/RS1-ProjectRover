@@ -28,8 +28,10 @@ SLAM with D435i:
 
 
 ## April tags
-    edit src/apriltag_ros/apriltag_ros/launch/continuous_detection.launch
-    change "configure camera input" values to match camera node names
+### edit:
+    src/apriltag_ros/apriltag_ros/launch/continuous_detection.launch
+### change:
+    "configure camera input" values to match camera node names
     
     eg (usb_cam):
         <!-- configure camera input -->
