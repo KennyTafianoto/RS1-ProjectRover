@@ -9,7 +9,9 @@ Rover Project for Robotics Studio 1
     catkin_make
 
 ## Launching the Simulation
+    export TURTLEBOT3_MODEL=waffle_pi
     roslaunch rs_gazebo_world turtlebot3_marker.launch
+    roslaunch turtlebot3_gazebo turtlebot3_gazebo_rviz.launch
 
 ### Reference List
 April Tag Models: https://github.com/koide3/gazebo_apriltag.git  
