@@ -25,3 +25,14 @@ Turtlebot3 + D435i:
 
 SLAM with D435i:
 - https://github.com/IntelRealSense/realsense-ros/wiki/SLAM-with-D435i
+
+
+## April tags
+    edit src/apriltag_ros/apriltag_ros/launch/continuous_detection.launch
+    change "configure camera input" values to match camera node
+    
+    eg:
+        <!-- configure camera input -->
+          <arg name="camera_name" default="/usb_cam" />
+          <arg name="image_topic" default="image_raw" />
+          <arg name="queue_size" default="1" />
