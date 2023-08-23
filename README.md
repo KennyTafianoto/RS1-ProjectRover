@@ -36,7 +36,7 @@ Rover Project for Robotics Studio 1
 ### edit:
     src/apriltag_ros/apriltag_ros/launch/continuous_detection.launch
 #### change parameters to match camera node names:
-##### eg 1 (usb_cam (DONT WORRY ABOUT THIS)):
+##### eg 1 (usb_cam): DON'T WORRY ABOUT THIS!
     <!-- configure camera input -->
     <arg name="camera_name" default="/usb_cam" />
     <arg name="image_topic" default="image_raw" />
