@@ -38,6 +38,6 @@ SLAM with D435i:
           <arg name="queue_size" default="1" />
 
     Launch:
-        roslaunch usb_cam usb_cam.launch
+        roslaunch usb_cam usb_cam-test.launch
         roslaunch apriltag_ros continuous_detection.launch
         
