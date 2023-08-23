@@ -103,7 +103,7 @@ Note: Save file to a location, the 'ost.yaml' file contains the useful data
 ### Reference List
 April Tag Models: https://github.com/koide3/gazebo_apriltag.git  
 AR Tracking 1: http://wiki.ros.org/apriltag_ros  
-AR Tracking 2: http://wiki.ros.org/ar_track_alvar  
+~~ AR Tracking 2: http://wiki.ros.org/ar_track_alvar ~~
 Turtlebot3 + D435i:
 - https://www.youtube.com/watch?v=hpUCG6K5muI
 - https://github.com/rickstaa/realsense-ros-gazebo
