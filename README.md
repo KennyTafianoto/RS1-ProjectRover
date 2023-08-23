@@ -61,7 +61,7 @@ SLAM with D435i:
         rosrun camera_calibration cameracalibrator.py --size 8x6 --square 0.024 image:=/camera/image_raw camera:=/camera
         save file somewhere
     
-##$# Edit:
+#### Edit:
     usb_cam-test.launch file
 
 #### Add line:
