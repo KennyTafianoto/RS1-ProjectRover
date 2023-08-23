@@ -23,10 +23,12 @@ Rover Project for Robotics Studio 1
 ## Installation:
     export ROS_DISTRO=noetic               # Set this to your distro, e.g. kinetic, melodic or noetic
     source /opt/ros/$ROS_DISTRO/setup.bash  # Source your ROS distro 
+    
     cd ~/catkin_ws/src                      # Navigate to the source space
     git clone https://github.com/AprilRobotics/apriltag_ros.git  # Clone Apriltag ROS wrapper
-    cd ~/catkin_ws                          # Navigate to the workspace
-    rosdep install --from-paths src --ignore-src -r -y  # Install any missing packages
+    
+    cd ~/catkin_ws
+    rosdep install --from-paths src --ignore-src -r -y
     catkin_make    # Build all packages in the workspace (catkin build and catkin_make_isolated will work also)
 
 
