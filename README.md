@@ -30,18 +30,18 @@ SLAM with D435i:
 ## April tags
 ### edit:
     src/apriltag_ros/apriltag_ros/launch/continuous_detection.launch
-### change (values to match camera node names):
-    eg (usb_cam):
-        <!-- configure camera input -->
-          <arg name="camera_name" default="/usb_cam" />
-          <arg name="image_topic" default="image_raw" />
+#### change (values to match camera node names):
+        eg (usb_cam):
+            <!-- configure camera input -->
+              <arg name="camera_name" default="/usb_cam" />
+              <arg name="image_topic" default="image_raw" />
+              <arg name="queue_size" default="1" />
+        
+        eg 2 (turtlebot3):
+             <!-- configure camera input -->
+          <arg name="camera_name" default="/camera" />
+          <arg name="image_topic" default="/rgb/image_raw" />
           <arg name="queue_size" default="1" />
-    
-    eg 2 (turtlebot3):
-         <!-- configure camera input -->
-      <arg name="camera_name" default="/camera" />
-      <arg name="image_topic" default="/rgb/image_raw" />
-      <arg name="queue_size" default="1" />
 
 ### Set tag family:
 #### edit:
