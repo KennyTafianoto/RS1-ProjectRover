@@ -67,7 +67,7 @@ Note: Save file to a location, the 'ost.yaml' file contains the useful data
 #### Add line (file location to match where you saved 'ost.yaml'):
     <param name="camera_info_url" value="file:///home/main/catkin_ws/src/usb_cam/cam_calibration/ost.yaml" />
     
-### Launch a camera publsihing node (options):
+### Launch a camera publishing node (options):
 #### USB CAM:
     roslaunch usb_cam usb_cam-test.launch
 #### turtleBot3:
