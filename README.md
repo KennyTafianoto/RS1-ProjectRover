@@ -45,27 +45,27 @@ SLAM with D435i:
 
 ### Set tag family:
 #### edit:
-        src/apriltag_ros/apriltag_ros/config/settings.yaml
+    src/apriltag_ros/apriltag_ros/config/settings.yaml
 
 ### Add standalone tags (optional):
 #### edit:
-        src/apriltag_ros/apriltag_ros/config/tags.yaml
+    src/apriltag_ros/apriltag_ros/config/tags.yaml
 
     
 ### Calibrate Camera:
 #### Install calibration library:
-        rosdep install camera_calibration
+    rosdep install camera_calibration
 
 #### Calibrate:
-        roslaunch usb_cam usb_cam-test.launch
-        rosrun camera_calibration cameracalibrator.py --size 8x6 --square 0.024 image:=/camera/image_raw camera:=/camera
-        save file somewhere
+    roslaunch usb_cam usb_cam-test.launch
+    rosrun camera_calibration cameracalibrator.py --size 8x6 --square 0.024 image:=/camera/image_raw camera:=/camera
+    save file somewhere
     
 #### Edit:
     usb_cam-test.launch file
 
 #### Add line:
-        <param name="camera_info_url" value="file:///home/main/catkin_ws/src/usb_cam/cam_calibration/ost.yaml" />
+    <param name="camera_info_url" value="file:///home/main/catkin_ws/src/usb_cam/cam_calibration/ost.yaml" />
     
 
 ### Launch:
