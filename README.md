@@ -67,9 +67,10 @@ SLAM with D435i:
 #### Add line:
     <param name="camera_info_url" value="file:///home/main/catkin_ws/src/usb_cam/cam_calibration/ost.yaml" />
     
-
-### Launch:
+### Launch camera (optional):
     roslaunch usb_cam usb_cam-test.launch
+
+### Launch detection:
     roslaunch apriltag_ros continuous_detection.launch
     rqt_image_view
         
