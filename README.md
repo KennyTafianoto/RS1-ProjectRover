@@ -1,5 +1,9 @@
 # RS1-ProjectRover
 Rover Project for Robotics Studio 1
+## Naming structure
+rs_<packagename>
+e.g. rs_gazebo
+     rs_description
 
 ## Cloning the Repository
     git clone git@github.com:KennyTafianoto/RS1-ProjectRover.git
