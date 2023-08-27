@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <robot name="basic-rocke" xmlns:xacro="http://ros.org/wiki/xacro">
  <!--###################### XACRO ######################-->
-    <xacro:property name="chasis_width" value="0.6"/>
-    <xacro:property name="chasis_length" value="1"/>
-    <xacro:property name="chasis_height" value="0.2"/>
-    <xacro:property name="leg_radius" value="0.05"/>
-    <xacro:property name="leg_length" value="0.5"/>
-    <xacro:property name="leg_rotation" value="0.79"/>
+    <xacro:property name="chasis_width" value="0.4"/>
+    <xacro:property name="chasis_length" value="0.65"/>
+    <xacro:property name="chasis_height" value="0.15"/>
+    <xacro:property name="leg_radius" value="0.03"/>
+    <xacro:property name="leg_length" value="0.25"/>
+    <xacro:property name="leg_rotation" value="0.4"/>
 
     <xacro:property name="front" value="1"/>
     <xacro:property name="back" value="-1"/>
@@ -30,7 +30,8 @@
         </joint>
     </xacro:macro>
 
-    <xacro:macro name="wheel" params="prefix_w lr_w">
+    <xacro:macro name="wheel" params="prefix_w fb_w"> 
+    <!-- x y z : 0  -->
         <link name="${prefix_w}_wheel">
             <visual>
                 <geometry>
@@ -41,7 +42,7 @@
         </link>
 
         <joint name="${prefix_w}_leg_to_wheel" type="continuous">
-            <origin xyz="0 ${lr_w*leg_length/2} ${-leg_length/2}" rpy="0 0 0"/>
+            <origin xyz="0 ${fb_w*leg_length/2} ${-leg_length/2}" rpy="0 0 0"/>
             <parent link="${prefix_w}_leg"/>
             <child link="${prefix_w}_wheel"/>
         </joint>
@@ -72,9 +73,9 @@
     <xacro:leg prefix_l="br" fb="${back}" lr="${right}"/>
     <xacro:leg prefix_l="bl" fb="${back}" lr="${left}"/>
 
-    <xacro:wheel prefix_w="fr" lr_w="${right}"/>
-    <xacro:wheel prefix_w="fl" lr_w="${left}"/>
-    <xacro:wheel prefix_w="br" lr_w="${right}"/>
-    <xacro:wheel prefix_w="bl" lr_w="${left}"/>
+    <xacro:wheel prefix_w="fr" fb_w="${front}"/>
+    <xacro:wheel prefix_w="fl" fb_w="${front}"/>
+    <xacro:wheel prefix_w="br" fb_w="${back}"/>
+    <xacro:wheel prefix_w="bl" fb_w="${back}"/>
     
 </robot>

@@ -1,7 +1,7 @@
 <launch>
-    <arg name="model" default="$(find rocke_description)/urdf/basic/basic-rocke.urdf"/>
+    <arg name="model" default="$(find rs_description)/urdf/basic/basic-rs.urdf"/>
     <arg name = "gui" default="true"/>
-    <arg name="rvizconfig" default="$(find rocke_description)/rviz/urdf.rviz"/>
+    <arg name="rvizconfig" default="$(find rs_description)/rviz/urdf.rviz"/>
 
     <param name="robot_description" command="$(find xacro)/xacro $(arg model)"/>
 
