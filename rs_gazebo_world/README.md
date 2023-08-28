@@ -16,7 +16,7 @@
 ### edit:
     src/apriltag_ros/apriltag_ros/launch/continuous_detection.launch
     
-### Set tag family (using 36h11 by default, so 'don't need to do this step'):
+### Set tag family (using 36h11 by default, so you don't need to do this step):
 #### edit:
     src/apriltag_ros/apriltag_ros/config/settings.yaml
 
