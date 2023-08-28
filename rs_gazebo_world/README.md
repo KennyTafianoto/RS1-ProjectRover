@@ -17,16 +17,16 @@
     src/apriltag_ros/apriltag_ros/launch/continuous_detection.launch
 #### change parameters to match camera node names:
 ##### eg 1 (usb_cam): DON'T WORRY ABOUT THIS!
-    <!-- configure camera input -->
-    <arg name="camera_name" default="/usb_cam" />
-    <arg name="image_topic" default="image_raw" />
-    <arg name="queue_size" default="1" />
+    ~~<!-- configure camera input -->~~
+    ~~<arg name="camera_name" default="/usb_cam" />~~
+    ~~<arg name="image_topic" default="image_raw" />~~
+    ~~<arg name="queue_size" default="1" />~~
     
 ##### eg 2 (turtlebot3):
-    <!-- configure camera input -->
-    <arg name="camera_name" default="/camera" />
-    <arg name="image_topic" default="/rgb/image_raw" />
-    <arg name="queue_size" default="1" />
+    ~~<!-- configure camera input -->~~
+    ~~<arg name="camera_name" default="/camera" />~~
+    ~~<arg name="image_topic" default="/rgb/image_raw" />~~
+    ~~<arg name="queue_size" default="1" />~~
 
 ### Set tag family (using 36h11 by default):
 #### edit:
