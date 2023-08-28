@@ -15,19 +15,7 @@
 ## SETUP:
 ### edit:
     src/apriltag_ros/apriltag_ros/launch/continuous_detection.launch
-#### change parameters to match camera node names:
-##### eg 1 (usb_cam): DON'T WORRY ABOUT THIS!
-    ~~<!-- configure camera input -->~~
-    ~~<arg name="camera_name" default="/usb_cam" />~~
-    ~~<arg name="image_topic" default="image_raw" />~~
-    ~~<arg name="queue_size" default="1" />~~
     
-##### eg 2 (turtlebot3):
-    ~~<!-- configure camera input -->~~
-    ~~<arg name="camera_name" default="/camera" />~~
-    ~~<arg name="image_topic" default="/rgb/image_raw" />~~
-    ~~<arg name="queue_size" default="1" />~~
-
 ### Set tag family (using 36h11 by default):
 #### edit:
     src/apriltag_ros/apriltag_ros/config/settings.yaml
@@ -75,9 +63,14 @@ Note: Save file to a location, the 'ost.yaml' file contains the useful data
     export TURTLEBOT3_MODEL=waffle_pi
     roslaunch turtlebot3_gazebo turtlebot3_gazebo_rviz.launch
 
-### Launch detection:
-    roslaunch apriltag_ros continuous_detection.launch
+### Launch detection for turtlebot:
+    roslaunch apriltag_ros continuous_detection.launch camera_name:="/camera" image_topic:="/rgb/image_raw" queue_size:="1"
     rqt_image_view
+
+### Launch detection for USB-camera:
+    roslaunch apriltag_ros continuous_detection.launch camera_name:="/usb_cam" image_topic:="/rgb/image_raw" queue_size:="1"
+    rqt_image_view
+    
 
 ### Working:
 ![AprilTag detection estimating pose with turtlebot3](https://github.com/KennyTafianoto/RS1-ProjectRover/blob/master/examples/apriltag_example.png)
