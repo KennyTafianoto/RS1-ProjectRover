@@ -18,11 +18,11 @@
     
 ### Set tag family (using 36h11 by default, so you don't need to do this step):
 #### edit:
-    src/apriltag_ros/apriltag_ros/config/settings.yaml
+    gedit ~/catkin_ws/src/apriltag_ros/apriltag_ros/config/settings.yaml
 
 ### Add standalone tags:
 #### edit:
-    src/apriltag_ros/apriltag_ros/config/tags.yaml
+    gedit ~/catkin_ws/src/apriltag_ros/apriltag_ros/config/tags.yaml
 #### replace:
     standalone_tags: 
     [
