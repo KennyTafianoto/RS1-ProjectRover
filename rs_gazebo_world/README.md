@@ -45,7 +45,7 @@
 Note: Save file to a location, the 'ost.yaml' file contains the useful data
     
 #### Edit:
-    src/launch/usb_cam-test.launch file
+    gedit ~/catkin_ws/src/launch/usb_cam-test.launch
 
 #### Add line (file location to match where you saved 'ost.yaml'):
     <param name="camera_info_url" value="file:///home/main/catkin_ws/src/usb_cam/cam_calibration/ost.yaml" />
