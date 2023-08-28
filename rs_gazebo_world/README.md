@@ -1,30 +1,33 @@
 # April tags
 
 ## Installation:
-    export ROS_DISTRO=noetic               # Set this to your distro, e.g. kinetic, melodic or noetic
-    source /opt/ros/$ROS_DISTRO/setup.bash  # Source your ROS distro 
+    export ROS_DISTRO=noetic
+    source /opt/ros/$ROS_DISTRO/setup.bash
     
-    cd ~/catkin_ws/src                      # Navigate to the source space
-    git clone https://github.com/AprilRobotics/apriltag_ros.git  # Clone Apriltag ROS wrapper
+    cd ~/catkin_ws/src
+    git clone https://github.com/AprilRobotics/apriltag_ros.git
     
     cd ~/catkin_ws
     rosdep install --from-paths src --ignore-src -r -y
-    catkin_make    # Build all packages in the workspace (catkin build and catkin_make_isolated will work also)
+    catkin_make
 
 
 ## SETUP:
 ### edit:
     src/apriltag_ros/apriltag_ros/launch/continuous_detection.launch
     
-### Set tag family (using 36h11 by default):
+### Set tag family (using 36h11 by default, so 'don't need to do this step'):
 #### edit:
     src/apriltag_ros/apriltag_ros/config/settings.yaml
 
-### Add standalone tags (optional):
+### Add standalone tags:
 #### edit:
     src/apriltag_ros/apriltag_ros/config/tags.yaml
-    standalone_tags:
-#### add:
+#### replace:
+    standalone_tags: 
+    [
+    ]
+#### with:   
     standalone_tags: 
     [
         {id: 0, size: 1.0, description: "TAG_0"},
@@ -36,7 +39,7 @@
     ]
 
     
-### Calibrate Camera (DONT WORRY ABOUT FOR NOW):
+### Calibrate Camera (`DONT WORRY ABOUT FOR NOW`):
 #### Install calibration library:
     rosdep install camera_calibration
 
@@ -53,10 +56,10 @@ Note: Save file to a location, the 'ost.yaml' file contains the useful data
 
 ## LAUNCH:
 ### Launch a camera publishing node (2 options):
-#### USB CAM:
+#### `OPTION 1:` USB CAM:
     roslaunch usb_cam usb_cam-test.launch
 
-#### turtleBot3:
+#### `OPTION 2:` turtleBot3:
     export TURTLEBOT3_MODEL=waffle_pi
     roslaunch rs_gazebo_world turtlebot3_marker.launch
     
@@ -65,11 +68,13 @@ Note: Save file to a location, the 'ost.yaml' file contains the useful data
 
 ### Launch detection for turtlebot:
     roslaunch apriltag_ros continuous_detection.launch camera_name:="/camera" image_topic:="/rgb/image_raw" queue_size:="1"
-    rqt_image_view
 
 ### Launch detection for USB-camera:
     roslaunch apriltag_ros continuous_detection.launch camera_name:="/usb_cam" image_topic:="/rgb/image_raw" queue_size:="1"
+
+### View detection:
     rqt_image_view
+click `dropdown` -> `tag_detections_image`
     
 
 ### Working:
