@@ -17,11 +17,9 @@
     src/apriltag_ros/apriltag_ros/launch/continuous_detection.launch
     
 ### Set tag family (using 36h11 by default, so you don't need to do this step):
-#### edit:
     gedit ~/catkin_ws/src/apriltag_ros/apriltag_ros/config/settings.yaml
 
 ### Add standalone tags:
-#### edit:
     gedit ~/catkin_ws/src/apriltag_ros/apriltag_ros/config/tags.yaml
 #### replace:
     standalone_tags: 
