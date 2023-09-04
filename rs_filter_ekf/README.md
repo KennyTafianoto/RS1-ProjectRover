@@ -1,6 +1,6 @@
 # installing kalman filter
 
-#### Clone robot_pose_ekf library:
+### Clone robot_pose_ekf library:
 ```ruby
 cd ~/catkin_ws/src
 git clone https://github.com/ros-planning/robot_pose_ekf.git
@@ -10,12 +10,12 @@ catkin_make
 source devel/setup.bash
 ```
 
-#### Edit launch file configuration:
+### Edit launch file configuration:
 ```ruby
 gedit ~/catkin_ws/src/robot_pose_ekf/robot_pose_ekf.launch
 ```
 
-### Replace with:
+#### Replace with:
 ```
 <launch>
 
@@ -32,4 +32,17 @@ gedit ~/catkin_ws/src/robot_pose_ekf/robot_pose_ekf.launch
 </node>
 
 </launch>
+```
+
+### Test:
+```
+export TURTLEBOT3_MODEL=waffle
+roslaunch turtlebot3_gazebo turtlebot3_world.launch
+
+export TURTLEBOT3_MODEL=waffle
+roslaunch turtlebot3_gazebo turtlebot3_gazebo_rviz.launch
+
+roslaunch robot_pose_ekf robot_pose_ekf.launch
+
+rostopic echo /robot_pose_ekf/odom_combined
 ```
