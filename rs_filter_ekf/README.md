@@ -35,7 +35,7 @@ gedit ~/catkin_ws/src/robot_pose_ekf/robot_pose_ekf.launch
 ```
 
 ### Test:
-```
+```ruby
 export TURTLEBOT3_MODEL=waffle
 roslaunch turtlebot3_gazebo turtlebot3_world.launch
 
