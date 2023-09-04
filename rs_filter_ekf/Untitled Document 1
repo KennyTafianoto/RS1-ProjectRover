@@ -1,0 +1,8 @@
+export TURTLEBOT3_MODEL=waffle
+roslaunch turtlebot3_gazebo turtlebot3_world.launch
+
+export TURTLEBOT3_MODEL=waffle
+roslaunch turtlebot3_gazebo turtlebot3_gazebo_rviz.launch
+
+roslaunch robot_pose_ekf robot_pose_ekf.launch
+
