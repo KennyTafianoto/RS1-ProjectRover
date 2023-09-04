@@ -78,4 +78,8 @@
     <xacro:wheel prefix_w="br" fb_w="${back}"/>
     <xacro:wheel prefix_w="bl" fb_w="${back}"/>
     
+    <xacro:include filename="$(find rs_description)/urdf/_d435.urdf.xacro" />
+    <sensor_d435 parent="base_link">
+    </sensor_d435>
+    
 </robot>

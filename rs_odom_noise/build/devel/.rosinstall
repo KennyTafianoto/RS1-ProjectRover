@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/kenny/catkin_ws/src/RS1-ProjectRover/rs_odom_noise/build/devel/setup.sh

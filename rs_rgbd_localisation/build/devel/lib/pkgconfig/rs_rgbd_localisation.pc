@@ -1,0 +1,8 @@
+prefix=/home/kenny/catkin_ws/src/RS1-ProjectRover/rs_rgbd_localisation/build/devel
+
+Name: rs_rgbd_localisation
+Description: Description of rs_rgbd_localisation
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

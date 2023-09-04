@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: rs_rgbd_localisation
+Description: Description of rs_rgbd_localisation
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
