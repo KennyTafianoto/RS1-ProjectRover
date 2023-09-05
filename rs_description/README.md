@@ -20,4 +20,13 @@ Only change the xacro properties!
 ```
 
 # Resources
-URDF tutorials can be found [here](http://wiki.ros.org/urdf/Tutorials).
+[URDF Tutorials](http://wiki.ros.org/urdf/Tutorials)
+[Gazebo Plugins Tutorial](https://classic.gazebosim.org/tutorials?tut=ros_gzplugins#Tutorial:UsingGazebopluginswithROS)
+[Example 1: Four-wheeled-robot](https://github.com/harshmittal2210/Robotics_ws/tree/main/src/atom)
+[ROS Control](https://classic.gazebosim.org/tutorials?tut=ros_control&cat=connect_ros)
+
+# Debugging Issues 
+```
+Issues with joint state publisher: 
+rosdep install --from-paths src/ --ignore-src -r -y
+```
