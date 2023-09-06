@@ -118,6 +118,6 @@ rostopic echo /robot_pose_ekf/odom_combined
 ```
 
 # References:
-[Grid mapping Navigation Tuning](https://kaiyuzheng.me/documents/navguide.pdf)
+[Grid mapping Navigation Tuning](https://kaiyuzheng.me/documents/navguide.pdf)<br>
 [Parameter Optimization Analysis of Gmapping](https://iopscience.iop.org/article/10.1088/1742-6596/1646/1/012004/pdf)
 
