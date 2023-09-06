@@ -11,7 +11,7 @@ gedit ~/catkin_ws/src/turtlebot3/turtlebot3_slam/config/gmapping_params.yaml
 #### Replace with:
 ```Ruby
 map_update_interval: 2.0
-maxUrange: 3.0
+maxUrange: 10.0
 sigma: 0.05
 kernelSize: 1
 lstep: 0.05
@@ -25,9 +25,9 @@ srr: 0.1
 srt: 0.2
 str: 0.1
 stt: 0.2
-linearUpdate: 1.0
-angularUpdate: 0.2
-temporalUpdate: 0.5
+linearUpdate: 0.2
+angularUpdate: 0.25
+temporalUpdate: 5.0
 resampleThreshold: 0.5
 particles: 100
 xmin: -10.0
@@ -40,7 +40,7 @@ llsamplestep: 0.01
 lasamplerange: 0.005
 lasamplestep: 0.005
 ```
-
+#### Terminal:
 ```Ruby
 export TURTLEBOT3_MODEL=waffle
 roslaunch rs_gazebo_world turtlebot3_marker_V2.launch
@@ -58,15 +58,7 @@ export TURTLEBOT3_MODEL=waffle
 roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/map_name.yaml
 ```
 
-
-
-
-
-
-
-
-
-
+#
 # installing kalman filter
 
 ### Clone robot_pose_ekf library:
