@@ -10,13 +10,13 @@ gedit ~/catkin_ws/src/turtlebot3/turtlebot3_slam/config/gmapping_params.yaml
 ```
 #### Replace with:
 ```Ruby
-map_update_interval: 2.0
-maxUrange: 10.0
+map_update_interval: 3.0
+maxUrange: 5.0
 sigma: 0.05
 kernelSize: 1
 lstep: 0.05
 astep: 0.05
-iterations: 5
+iterations: 10
 lsigma: 0.075
 ogain: 3.0
 lskip: 0
@@ -25,15 +25,15 @@ srr: 0.1
 srt: 0.2
 str: 0.1
 stt: 0.2
-linearUpdate: 0.2
-angularUpdate: 0.25
-temporalUpdate: 5.0
+linearUpdate: 0.5
+angularUpdate: 0.2
+temporalUpdate: 1.0
 resampleThreshold: 0.5
-particles: 100
-xmin: -10.0
-ymin: -10.0
-xmax: 10.0
-ymax: 10.0
+particles: 200
+xmin: -5.0
+ymin: -7.5
+xmax: 5.0
+ymax: 7.5
 delta: 0.05
 llsamplerange: 0.01
 llsamplestep: 0.01
