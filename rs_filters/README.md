@@ -47,6 +47,10 @@ roslaunch rs_gazebo_world turtlebot3_marker_V2.launch
 
 export TURTLEBOT3_MODEL=waffle
 roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping
+
+export TURTLEBOT3_MODEL=waffle
+roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
+
 ```
 
 ### Using Particle Filter:
