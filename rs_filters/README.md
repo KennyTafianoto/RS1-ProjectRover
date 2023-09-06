@@ -51,6 +51,8 @@ roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping
 export TURTLEBOT3_MODEL=waffle
 roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 
+rosrun map_server map_saver -f ~/map_name
+
 ```
 
 ### Using Particle Filter:
