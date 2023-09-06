@@ -61,7 +61,10 @@ export TURTLEBOT3_MODEL=waffle
 roslaunch rs_gazebo_world turtlebot3_marker_V2.launch
 
 export TURTLEBOT3_MODEL=waffle
-roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/catkin_ws/src/RS1-ProjectRover/examples/map_name.yaml
+roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/catkin_ws/src/RS1-ProjectRover/examples/rs_V2_map.yaml
+
+export TURTLEBOT3_MODEL=waffle
+roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 ```
 
 #
