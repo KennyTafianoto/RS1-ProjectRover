@@ -118,5 +118,7 @@ rostopic echo /robot_pose_ekf/odom_combined
 ```
 
 # References:
+```
 https://kaiyuzheng.me/documents/navguide.pdf
 https://iopscience.iop.org/article/10.1088/1742-6596/1646/1/012004/pdf
+```
