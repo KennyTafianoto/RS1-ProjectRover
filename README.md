@@ -14,7 +14,7 @@ e.g. rs_gazebo
 
 ## Launching the Simulation
     export TURTLEBOT3_MODEL=waffle_pi
-    roslaunch rs_gazebo_world turtlebot3_marker.launch
+    roslaunch rs_gazebo_world turtlebot3_marker_V2.launch
     
     export TURTLEBOT3_MODEL=waffle_pi
     roslaunch turtlebot3_gazebo turtlebot3_gazebo_rviz.launch
