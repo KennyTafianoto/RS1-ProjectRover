@@ -6,7 +6,10 @@ catkin_make --pkg rs_odom_noise
 source devel/setup.bash
 ```
 
-### Roslaunch robot
+### Roslaunch robot:
+```Ruby
+roslaunch blah blah blah
+```
 
 ### Start program:
 ```Ruby
