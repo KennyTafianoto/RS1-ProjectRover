@@ -10,5 +10,5 @@ source devel/setup.bash
 
 ### Start program:
 ```Ruby
-rosrun rs_odom_noise noise.cpp
+rosrun rs_odom_noise rs_odom_noise_node
 ```
