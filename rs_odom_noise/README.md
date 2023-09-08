@@ -7,7 +7,7 @@ source devel/setup.bash
 ```
 
 ### Roslaunch robot:
-```Ruby
+```
 roslaunch blah blah blah
 ```
 
