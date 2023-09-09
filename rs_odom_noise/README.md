@@ -11,7 +11,11 @@ source devel/setup.bash
 roslaunch blah blah blah
 ```
 
-### Start program:
+### For data logging:
+Before rs_odom_noise_node starts, ensure that you are subscribing to a filter
+topic that is already running (if you wish to log it).
+
+### Start the node:
 ```Ruby
 rosrun rs_odom_noise rs_odom_noise_node
 ```
