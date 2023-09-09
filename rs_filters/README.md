@@ -85,7 +85,7 @@ source devel/setup.bash
 gedit ~/catkin_ws/src/robot_pose_ekf/robot_pose_ekf.launch
 ```
 
-#### Replace with:
+#### Replace with (subscribing to /noisy_odom and /imu):
 ```
 <launch>
 
@@ -98,6 +98,8 @@ gedit ~/catkin_ws/src/robot_pose_ekf/robot_pose_ekf.launch
   <param name="imu_used" value="true"/>
   <param name="vo_used" value="false"/>
 
+
+  <remap from="odom" to="/noisy_odom" />
   <remap from="imu" to="/imu" />
 </node>
 
