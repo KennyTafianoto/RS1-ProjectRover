@@ -99,6 +99,8 @@ void FilteredOdomCallback(const geometry_msgs::PoseWithCovarianceStamped::ConstP
 
 void noisyOdomCallback(const nav_msgs::Odometry::ConstPtr &noisy_odom_msg)
 {
+    NoisyOdomData_.str("");
+    NoisyOdomData_.clear();
     NoisyOdomData_ << noisy_odom_msg->pose.pose.position.x << ","
                    << noisy_odom_msg->pose.pose.position.y << ","
                    << noisy_odom_msg->pose.pose.position.z;
@@ -106,7 +108,8 @@ void noisyOdomCallback(const nav_msgs::Odometry::ConstPtr &noisy_odom_msg)
 
 void odomCallback(const nav_msgs::Odometry::ConstPtr &odom_msg)
 {
-
+    rawOdomData_.str("");
+    rawOdomData_.clear();
     rawOdomData_ << odom_msg->pose.pose.position.x << ","
                  << odom_msg->pose.pose.position.y << ","
                  << odom_msg->pose.pose.position.z;
