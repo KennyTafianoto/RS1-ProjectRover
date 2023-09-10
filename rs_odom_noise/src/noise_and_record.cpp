@@ -15,7 +15,7 @@
 
 // Global Variables
 std::string logFilePath = "odometry_data.csv";
-std::string filtered_node_name_ = "/robot_pose_ekf/odom_combined";
+std::string filtered_node_name_; //= "/robot_pose_ekf/odom_combined";
 std::float_t samplePeriod_ = 0.1; // time period between each sample saved to the csv file
 ros::Publisher noisy_odom_publisher;
 ros::Subscriber filtered_odom_subscriber;
@@ -28,6 +28,7 @@ double getRandomNoise();
 void FilteredOdomCallback(const geometry_msgs::PoseWithCovarianceStamped::ConstPtr &filtered_odom_msg);
 void odomCallback(const nav_msgs::Odometry::ConstPtr &odom_msg);
 void writeDataToCSV(const ros::TimerEvent &);
+std::string getFilterTopic();
 
 int main(int argc, char **argv)
 {
@@ -43,6 +44,9 @@ int main(int argc, char **argv)
         return 1;
     }
     csv_file << "Original_X,Original_Y,Original_Z,Noisy_X,Noisy_Y,Noisy_Z,Filtered_X,Filtered_Y,Filtered_Z\n";
+
+    // ask for filter topic node name
+    filtered_node_name_ = getFilterTopic();
 
     // Check Topic Availability and Subscribe
     if (checkFilteredTopicAvailability())
@@ -60,6 +64,14 @@ int main(int argc, char **argv)
     // ROS Spin
     ros::spin();
     return 0;
+}
+
+std::string getFilterTopic()
+{
+    std::string nodeName;
+    std::cout << "Please enter the filter topic node (eg: /odom): ";
+    std::cin >> nodeName;
+    return nodeName;
 }
 
 bool checkFilteredTopicAvailability()
@@ -84,6 +96,10 @@ bool checkFilteredTopicAvailability()
                           << "-"
                           << ","
                           << "-";
+        }
+        else
+        {
+            ROS_INFO("Writing to .csv file...");
         }
     }
     return found_;

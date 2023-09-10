@@ -15,8 +15,10 @@
 
 // Global Variables
 std::string logFilePath = "odometry_data.csv";
-std::string filtered_node_name_ = "/robot_pose_ekf/odom_combined";
 std::float_t samplePeriod_ = 0.1; // time period between each sample saved to the csv file
+
+std::string filtered_node_name_; //= "/robot_pose_ekf/odom_combined";
+
 ros::Subscriber filtered_odom_subscriber;
 std::ofstream csv_file;
 std::stringstream filteredData_, rawOdomData_, NoisyOdomData_;
@@ -27,6 +29,7 @@ void FilteredOdomCallback(const geometry_msgs::PoseWithCovarianceStamped::ConstP
 void noisyOdomCallback(const nav_msgs::Odometry::ConstPtr &odom_msg);
 void odomCallback(const nav_msgs::Odometry::ConstPtr &odom_msg);
 void writeDataToCSV(const ros::TimerEvent &);
+std::string getFilterTopic();
 
 int main(int argc, char **argv)
 {
@@ -42,6 +45,11 @@ int main(int argc, char **argv)
         return 1;
     }
     csv_file << "Original_X,Original_Y,Original_Z,Noisy_X,Noisy_Y,Noisy_Z,Filtered_X,Filtered_Y,Filtered_Z\n";
+
+
+    // ask for filter topic node name
+    filtered_node_name_ = getFilterTopic();
+
 
     // Check Topic Availability and Subscribe
     if (checkFilteredTopicAvailability())
@@ -61,6 +69,14 @@ int main(int argc, char **argv)
     return 0;
 }
 
+std::string getFilterTopic()
+{
+    std::string nodeName;
+    std::cout << "Please enter the filter topic node (eg: /odom): ";
+    std::cin >> nodeName;
+    return nodeName;
+}
+
 bool checkFilteredTopicAvailability()
 {
     std::vector<ros::master::TopicInfo> topic_infos;
@@ -77,12 +93,16 @@ bool checkFilteredTopicAvailability()
         }
         if (!found_)
         {
-            ROS_INFO("Topic /odom_filtered not found, writing to file anyway...");
+            ROS_INFO("Topic %s not found, writing to file anyway...", filtered_node_name_.c_str());
             filteredData_ << "-"
                           << ","
                           << "-"
                           << ","
                           << "-";
+        }
+        else
+        {
+            ROS_INFO("Writing to .csv file...");
         }
     }
     return found_;
