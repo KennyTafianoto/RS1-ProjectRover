@@ -11,10 +11,10 @@ position = Vector3(0, 0, 0)
 velocity = Vector3(0, 0, 0)
 last_time = None
 
+odom_pub = rospy.Publisher('/odom_localisation', Odometry, queue_size = 10)
+    
 # Callback function to process IMU data
 def imu_callback(msg):
-    # rospy.init_node('odometry_publisher')
-    odom_pub = rospy.Publisher('/odom_localisation', Odometry, queue_size = 10)
     
     global last_time
     global position
@@ -66,4 +66,10 @@ if __name__ == '__main__':
     try:
         imu_listener()
     except rospy.ROSInterruptException:
-        pass
+        odom = Odometry()
+        odom.header.stamp = rospy.Time.now()
+        odom.header.frame_id = "odom_l"
+        odom.pose.pose = Pose(Point(0,0,0), msg.orientation)
+
+        odom_pub.publish(odom)
+
