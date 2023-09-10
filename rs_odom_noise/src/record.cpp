@@ -142,4 +142,8 @@ void writeDataToCSV(const ros::TimerEvent &)
         csv_file << rawOdomData_.str() << "," << NoisyOdomData_.str() << "," << filteredData_.str() << "\n";
         csv_file.flush();
     }
+    else
+    {
+        ROS_INFO("Waiting for all data to become available");
+    }
 }

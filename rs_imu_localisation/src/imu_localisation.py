@@ -2,8 +2,8 @@
 
 import rospy
 from sensor_msgs.msg import Imu
-from nav_msgs.msg import Odometry
-from geometry_msgs.msg import Point, Pose, Quaternion, Twist, Vector3
+
+from geometry_msgs.msg import Point, Pose, Quaternion, Twist, Vector3, PoseWithCovarianceStamped
 import numpy as np
 
 # Global variables for position and velocity
@@ -11,8 +11,8 @@ position = Vector3(0, 0, 0)
 velocity = Vector3(0, 0, 0)
 last_time = None
 
-odom_pub = rospy.Publisher('/odom_localisation', Odometry, queue_size = 10)
-    
+pose_cov_pub = rospy.Publisher('/odom_localisation', PoseWithCovarianceStamped, queue_size=10)
+
 # Callback function to process IMU data
 def imu_callback(msg):
     
@@ -43,18 +43,19 @@ def imu_callback(msg):
     # Print the current position
     rospy.loginfo("Current Position (x, y, z): (%.2f, %.2f, %.2f)", position.x, position.y, position.z)
 
-    odom = Odometry()
-    odom.header.stamp = rospy.Time.now()
-    odom.header.frame_id = "odom_l"
-    odom.pose.pose = Pose(Point(position.x, position.y, position.z), msg.orientation)
+    pose_cov = PoseWithCovarianceStamped()
+    pose_cov.header.stamp = rospy.Time.now()
+    pose_cov.header.frame_id = "pose_cov_l"
+    pose_cov.pose.pose = Pose(Point(position.x, position.y, position.z), msg.orientation)
 
-    odom_pub.publish(odom)
+    # Populate covariance matrix here if needed
+    # pose_cov.pose.covariance = ...
 
-    
+    pose_cov_pub.publish(pose_cov)
 
 def imu_listener():
     # Initialize the ROS node
-    rospy.init_node('imu_localization', anonymous=True)
+    rospy.init_node('imu_localisation', anonymous=True)
 
     # Subscribe to the /imu topic with the Imu message type
     rospy.Subscriber("/imu", Imu, imu_callback)
@@ -66,10 +67,4 @@ if __name__ == '__main__':
     try:
         imu_listener()
     except rospy.ROSInterruptException:
-        odom = Odometry()
-        odom.header.stamp = rospy.Time.now()
-        odom.header.frame_id = "odom_l"
-        odom.pose.pose = Pose(Point(0,0,0), msg.orientation)
-
-        odom_pub.publish(odom)
-
+        pass
