@@ -34,12 +34,16 @@ rosrun rs_odom_noise rs_odom_noise_create_noise_and_record
 
 
 # Using rosbag and saving CSV Data:
+download rosbag:
+https://www.dropbox.com/scl/fi/qx0ws6hl76cfxs1qln4k7/noisy_odometry.bag?rlkey=gvtnqx8ieo1wc0ryr2d89txre&dl=0
+
 ### Start roscore:
 ```Ruby
 roscore
 ```
 
 ### Load rosbag (initially paused):
+cd to rosbag location
 ```Ruby
 rosbag play --pause noisy_odometry.bag
 ```
