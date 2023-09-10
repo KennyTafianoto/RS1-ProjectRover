@@ -40,6 +40,17 @@ llsamplestep: 0.01
 lasamplerange: 0.005
 lasamplestep: 0.005
 ```
+
+### Edit launch file configuration:
+```ruby
+gedit ~/catkin_ws/src/turtlebot3/turtlebot3_navigation/launch/amcl.launch
+```
+
+#### Replace with (subscribing to /noisy_odom and):
+```
+<param name="odom_frame_id"             value="noisy_odom"/>
+```
+
 #### Terminal:
 ```Ruby
 export TURTLEBOT3_MODEL=waffle

@@ -61,7 +61,7 @@ rosrun rs_odom_noise rs_odom_noise_record
 ```
 
 ### Start rosbag:
-press space in the window where 'rosbag play' entered
+press `space` in the window where 'rosbag play' entered
 
 ### Finish recording:
 When rosbag is done, press `Ctrl+C` on the recording node to stop recording to the .csv file
