@@ -33,7 +33,7 @@ rosrun rs_odom_noise rs_odom_noise_create_noise_and_record
 ```
 
 
-# Using rosbag:
+# Using rosbag and saving CSV Data:
 ### Start roscore:
 ```Ruby
 roscore
@@ -53,7 +53,7 @@ roslaunch robot_pose_ekf robot_pose_ekf.launch
 ### Start data recording node:
 cd to your desired save location for the .csv file
 ```Ruby
-
+rosrun rs_odom_noise rs_odom_noise_record
 ```
 
 ### Start rosbag:
