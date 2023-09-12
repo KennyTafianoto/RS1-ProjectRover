@@ -1,8 +1,0 @@
-prefix=/usr/local
-
-Name: rs_odom_noise
-Description: Description of rs_odom_noise
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: geometry_msgs nav_msgs roscpp rospy sensor_msgs std_msgs tf
