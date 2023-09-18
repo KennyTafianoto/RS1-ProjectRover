@@ -5,11 +5,11 @@
 ### Grid Mapping:
 
 ### Edit parameters:
-```Ruby
+```Bash
 gedit ~/catkin_ws/src/turtlebot3/turtlebot3_slam/config/gmapping_params.yaml
 ```
 #### Replace with:
-```Ruby
+```Bash
 map_update_interval: 3.0
 maxUrange: 5.0
 sigma: 0.05
@@ -67,7 +67,7 @@ rosrun map_server map_saver -f ~/map_name
 ```
 
 ### Using Particle Filter:
-```Ruby
+```Bash
 export TURTLEBOT3_MODEL=waffle
 roslaunch rs_gazebo_world turtlebot3_marker_V2.launch
 
@@ -82,7 +82,7 @@ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 # installing kalman filter
 
 ### Clone robot_pose_ekf library:
-```ruby
+```Bash
 cd ~/catkin_ws/src
 git clone https://github.com/ros-planning/robot_pose_ekf.git
 
@@ -92,12 +92,12 @@ source devel/setup.bash
 ```
 
 ### Edit launch file configuration:
-```ruby
+```Bash
 gedit ~/catkin_ws/src/robot_pose_ekf/robot_pose_ekf.launch
 ```
 
 #### Replace with (subscribing to /noisy_odom and /imu):
-```
+```Bash
 <launch>
 
 <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf">
@@ -118,7 +118,7 @@ gedit ~/catkin_ws/src/robot_pose_ekf/robot_pose_ekf.launch
 ```
 
 ### Test:
-```ruby
+```Bash
 export TURTLEBOT3_MODEL=waffle
 roslaunch turtlebot3_gazebo turtlebot3_world.launch
 
