@@ -42,7 +42,7 @@ lasamplestep: 0.005
 ```
 
 ### Edit launch file configuration:
-```ruby
+```Bash
 gedit ~/catkin_ws/src/turtlebot3/turtlebot3_navigation/launch/amcl.launch
 ```
 
@@ -52,7 +52,7 @@ gedit ~/catkin_ws/src/turtlebot3/turtlebot3_navigation/launch/amcl.launch
 ```
 
 #### Terminal:
-```Ruby
+```Bash
 export TURTLEBOT3_MODEL=waffle
 roslaunch rs_gazebo_world turtlebot3_marker_V2.launch
 
