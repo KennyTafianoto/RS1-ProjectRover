@@ -125,6 +125,8 @@ roslaunch turtlebot3_gazebo turtlebot3_world.launch
 export TURTLEBOT3_MODEL=waffle
 roslaunch turtlebot3_gazebo turtlebot3_gazebo_rviz.launch
 
+rosrun rs_odom_noise rs_odom_noise_create_noise
+
 roslaunch robot_pose_ekf robot_pose_ekf.launch
 
 rostopic echo /robot_pose_ekf/odom_combined
