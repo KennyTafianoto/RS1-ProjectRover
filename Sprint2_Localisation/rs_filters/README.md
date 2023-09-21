@@ -140,6 +140,9 @@ cd ros_ws/
 rosdep install --from-paths src --ignore-src -r -y
 catkin_make -DCMAKE_BUILD_TYPE=Release
 ```
+## Use these files:
+[config file](./robot_localization_library_configs/rs_ekf.yaml)
+[launch file](./robot_localization_library_configs/rs_ekf.launch)
 
 
 
