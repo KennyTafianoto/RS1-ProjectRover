@@ -79,7 +79,7 @@ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 ```
 
 #
-# installing kalman filter
+# installing kalman filter (robot_pose_ekf)
 
 ### Clone robot_pose_ekf library:
 ```Bash
@@ -131,6 +131,17 @@ roslaunch robot_pose_ekf robot_pose_ekf.launch
 
 rostopic echo /robot_pose_ekf/odom_combined
 ```
+#
+# installing kalman filter (robot_localization)
+```Bash
+cd ros_ws/src
+git clone https://github.com/cra-ros-pkg/robot_localization.git --branch noetic-devel
+cd ros_ws/
+rosdep install --from-paths src --ignore-src -r -y
+catkin_make -DCMAKE_BUILD_TYPE=Release
+```
+
+
 
 # References:
 [Grid mapping Navigation Tuning](https://kaiyuzheng.me/documents/navguide.pdf)<br>
