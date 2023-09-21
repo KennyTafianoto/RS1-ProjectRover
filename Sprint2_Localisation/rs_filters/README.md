@@ -142,6 +142,7 @@ catkin_make -DCMAKE_BUILD_TYPE=Release
 ```
 ## Copy these files to the launch and params folders of the `robot_localization` library:
 [config file](./robot_localization_library_configs/rs_ekf.yaml)
+---
 [launch file](./robot_localization_library_configs/rs_ekf.launch)
 
 
