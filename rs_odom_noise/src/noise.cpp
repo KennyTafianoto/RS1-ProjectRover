@@ -17,6 +17,7 @@
 std::string filtered_node_name_ = "/robot_pose_ekf/odom_combined";
 ros::Publisher noisy_odom_publisher;
 std::stringstream filteredData_, rawOdomData_, NoisyOdomData_;
+double noise_var = 0.05;
 
 // Function Prototypes
 double getRandomNoise();
@@ -41,7 +42,7 @@ double getRandomNoise()
 {
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_real_distribution<double> dis(-0.05, 0.05);
+    std::uniform_real_distribution<double> dis(-noise_var, noise_var);
     return dis(gen);
 }
 
@@ -72,14 +73,14 @@ void odomCallback(const nav_msgs::Odometry::ConstPtr &odom_msg)
     m.getRPY(roll, pitch, yaw);
 
     // Assuming you have angular uncertainty in roll, pitch, yaw
-    float variance_roll = std::pow((5.0 / 100.0) * roll, 2);
-    float variance_pitch = std::pow((5.0 / 100.0) * pitch, 2);
-    float variance_yaw = std::pow((5.0 / 100.0) * yaw, 2);
+    float variance_roll = std::pow((noise_var) * roll, 2);
+    float variance_pitch = std::pow((noise_var) * pitch, 2);
+    float variance_yaw = std::pow((noise_var) * yaw, 2);
 
     // Calculate variances based on odom_msg mean measurements
-    float variance_x = std::pow((5.0 / 100.0) * odom_msg->pose.pose.position.x, 2);
-    float variance_y = std::pow((5.0 / 100.0) * odom_msg->pose.pose.position.y, 2);
-    float variance_z = std::pow((5.0 / 100.0) * odom_msg->pose.pose.position.z, 2);
+    float variance_x = std::pow((noise_var) * odom_msg->pose.pose.position.x, 2);
+    float variance_y = std::pow((noise_var) * odom_msg->pose.pose.position.y, 2);
+    float variance_z = std::pow((noise_var) * odom_msg->pose.pose.position.z, 2);
 
     // Set the covariance matrix
     noisy_odom.pose.covariance[0] = variance_x;      // Variance in x
