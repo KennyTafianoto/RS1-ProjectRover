@@ -24,6 +24,7 @@ Only change the xacro properties!
 [Gazebo Plugins Tutorial](https://classic.gazebosim.org/tutorials?tut=ros_gzplugins#Tutorial:UsingGazebopluginswithROS)
 [Example 1: Four-wheeled-robot](https://github.com/harshmittal2210/Robotics_ws/tree/main/src/atom)
 [ROS Control](https://classic.gazebosim.org/tutorials?tut=ros_control&cat=connect_ros)
+[Transmission](http://wiki.ros.org/urdf/XML/Transmission)
 
 # Debugging Issues 
 ```
