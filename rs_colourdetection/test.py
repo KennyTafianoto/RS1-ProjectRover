@@ -31,8 +31,8 @@ class image_converter:
     
     # Define the lower and upper bounds for red, green, and blue colors in BGR format
     # Refer to resources in README.md for RGB chart map
-    lower_red = np.array([0, 0, 128]) # Blue = 0, Green = 0, Red = 100
-    upper_red = np.array([0, 0, 255])
+    lower_red = np.array([0, 0, 96]) # Blue = 0, Green = 0, Red = 100
+    upper_red = np.array([0, 0, 224])
     lower_green = np.array([0, 96, 0])
     upper_green = np.array([96, 255, 96])
     lower_blue = np.array([128, 0, 0])
