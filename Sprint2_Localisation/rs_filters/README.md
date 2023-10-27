@@ -5,11 +5,11 @@
 ### Grid Mapping:
 
 ### Edit parameters:
-```Ruby
+```Bash
 gedit ~/catkin_ws/src/turtlebot3/turtlebot3_slam/config/gmapping_params.yaml
 ```
 #### Replace with:
-```Ruby
+```Bash
 map_update_interval: 3.0
 maxUrange: 5.0
 sigma: 0.05
@@ -42,7 +42,7 @@ lasamplestep: 0.005
 ```
 
 ### Edit launch file configuration:
-```ruby
+```Bash
 gedit ~/catkin_ws/src/turtlebot3/turtlebot3_navigation/launch/amcl.launch
 ```
 
@@ -52,7 +52,7 @@ gedit ~/catkin_ws/src/turtlebot3/turtlebot3_navigation/launch/amcl.launch
 ```
 
 #### Terminal:
-```Ruby
+```Bash
 export TURTLEBOT3_MODEL=waffle
 roslaunch rs_gazebo_world turtlebot3_marker_V2.launch
 
@@ -67,7 +67,7 @@ rosrun map_server map_saver -f ~/map_name
 ```
 
 ### Using Particle Filter:
-```Ruby
+```Bash
 export TURTLEBOT3_MODEL=waffle
 roslaunch rs_gazebo_world turtlebot3_marker_V2.launch
 
@@ -79,10 +79,10 @@ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 ```
 
 #
-# installing kalman filter
+# installing kalman filter (robot_pose_ekf)
 
 ### Clone robot_pose_ekf library:
-```ruby
+```Bash
 cd ~/catkin_ws/src
 git clone https://github.com/ros-planning/robot_pose_ekf.git
 
@@ -92,12 +92,12 @@ source devel/setup.bash
 ```
 
 ### Edit launch file configuration:
-```ruby
+```Bash
 gedit ~/catkin_ws/src/robot_pose_ekf/robot_pose_ekf.launch
 ```
 
 #### Replace with (subscribing to /noisy_odom and /imu):
-```
+```Bash
 <launch>
 
 <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf">
@@ -118,17 +118,35 @@ gedit ~/catkin_ws/src/robot_pose_ekf/robot_pose_ekf.launch
 ```
 
 ### Test:
-```ruby
+```Bash
 export TURTLEBOT3_MODEL=waffle
 roslaunch turtlebot3_gazebo turtlebot3_world.launch
 
 export TURTLEBOT3_MODEL=waffle
 roslaunch turtlebot3_gazebo turtlebot3_gazebo_rviz.launch
 
+rosrun rs_odom_noise rs_odom_noise_create_noise
+
 roslaunch robot_pose_ekf robot_pose_ekf.launch
 
 rostopic echo /robot_pose_ekf/odom_combined
 ```
+#
+# installing kalman filter (robot_localization)
+```Bash
+cd ros_ws/src
+git clone https://github.com/cra-ros-pkg/robot_localization.git --branch noetic-devel
+cd ros_ws/
+rosdep install --from-paths src --ignore-src -r -y
+catkin_make -DCMAKE_BUILD_TYPE=Release
+```
+## Copy these files to the launch and params folders of the `robot_localization` library:
+---
+[config file](./robot_localization_library_configs/rs_ekf.yaml)
+---
+[launch file](./robot_localization_library_configs/rs_ekf.launch)
+---
+
 
 # References:
 [Grid mapping Navigation Tuning](https://kaiyuzheng.me/documents/navguide.pdf)<br>
