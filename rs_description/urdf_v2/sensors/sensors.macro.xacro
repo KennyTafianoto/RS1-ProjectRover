@@ -1,0 +1,34 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot_name">
+    <xacro:include filename="$(find rs_description)/urdf_v2/sensors/sensors.gazebo.xacro"/>
+
+    <xacro:property name="imu_l" value="0.004"/>
+    <xacro:property name="imu_w" value="0.022"/>
+    <xacro:property name="imu_h" value="0.022"/>
+
+    <xacro:macro name="imu" params="parent">
+        <link name="imu_link">
+            <visual>
+                <geometry>
+                    <box size="${imu_l} ${imu_w} ${imu_h}"/>
+                </geometry>
+            </visual>
+            <collision>
+                <geometry>
+                    <box size="${imu_l} ${imu_w} ${imu_h}"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <mass value="1e-5" />
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+            </inertial>
+        </link>
+
+        <joint name="base_link_to_manipulator_link_joint" type="fixed">
+            <origin xyz="0 0 0" rpy="0 0 1.5708"/>
+            <parent link="${parent}"/>
+            <child link="imu_link"/>
+        </joint>
+    </xacro:macro>
+
+</robot>

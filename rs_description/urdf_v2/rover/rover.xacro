@@ -1,33 +1,29 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot_name">
 
-    <link name="base_link_rover" />
+    <link name="base_link" />
 
     <xacro:include filename="$(find rs_description)/urdf_v2/rover_movement/rover_movement.xacro"/>
     <!-- <xacro:include filename="$(find rover_description)/urdf/rover_manipulator/rover_manipulator.xacro"/> -->
-    <!-- <xacro:include filename="$(find realsense2_description)/urdf/test_d435_camera.urdf.xacro"/> -->
+    <xacro:include filename="$(find rs_description)/urdf_v2/sensors/sensors.macro.xacro"/>
+    <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" />
 
     <joint name="base_link_to_chassis" type="fixed">
-        <parent link="base_link_rover"/>
+        <parent link="base_link"/>
         <child link="chassis_link"/>
         <origin xyz="0 0 ${-chassis_height/2}" rpy="0 0 0"/>
     </joint>
 
-    <!-- <xacro:sensor_d435 name="sensor_d435"/>
-    <joint name="camera_to_chassis" type="fixed">
-        <parent link="base_link"/>
-        <child link="sensor_d435"/>
-        <origin xyz="0 0 ${-chassis_height/2}" rpy="0 0 0"/>
-    </joint> -->
+    <xacro:sensor_d435 name="camera" topics_ns="camera" parent="base_link" publish_pointcloud="true">
+        <origin xyz="0 0 0" rpy="0 0 -1.5708" />
+    </xacro:sensor_d435> 
 
+    <xacro:imu parent="base_link"/>
+    
     <!-- <joint name="base_link_to_manipulator_link_joint" type="fixed">
         <origin xyz="0 0.23 0" rpy="0 0 ${PI}"/>
         <parent link="base_link"/>
         <child link="manipulator_link"/>
     </joint> -->
 
-    <!-- <gazebo>
-        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-            <robotNamespace>/</robotNamespace>
-        </plugin> 
-    </gazebo> -->
+    
 </robot>
